@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
     // Use Navigator to open the new screen
     Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => NoteList(title: notesList[i], note: notesList[i], date: dateList[i], category: categoryList[i])),
+    MaterialPageRoute(builder: (context) => NoteList(title: notesList[i].toString(), note: notesList[i].toString(), date: dateList[i].toString(), category: categoryList[i].toString())),
     );},
                   selectedTileColor: const Color(0XFFBDCDD6),
                   title: Container(
@@ -265,22 +265,35 @@ class NoteList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Container(
-        
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(title),
-                Text(category)
-              ],
-            ),
-            Text(note)
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                  Container(
+                    padding: const EdgeInsets.all(5),
+                    decoration:  BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color:const Color(0XFF97f0ff)
+                    ),
+                    child: Text(category,
+                      style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 10),),
+                  )
+                ],
+              ),
+              SizedBox(height: 30,),
+              Text(note,)
+            ],
+          ),
+
         ),
-        
       ),
     );
   }
