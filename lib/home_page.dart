@@ -266,7 +266,7 @@ class NoteList extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(16, 10, 10, 10),
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
